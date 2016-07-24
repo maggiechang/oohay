@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html>
+<head>
+	<style>
+/*	img {
+		display: none;
+	}*/
+	</style>
+</head>
+<body>
+	<form>what is yo name<br><input type="text" id="answer" name="Answer"></form>
+	<button onclick = "myFunction()">insert</button>
+	<img src = "pic1">
+	<script>
+		var images = [{"pic1":"http://science-all.com/images/wallpapers/hamburger/hamburger-21.jpg"}]
+		var pick;
+		var x = Math.floor((Math.random() * 10));
+		var setup = function(){
+		pick = images[x];
+		document.getElementById("pic1").src = pick.pic1;
+		x = (x+1) % images.length;
+		localStorage.setItem("x", x);
+		};
+
+		function myFunction() {
+		var Answer = document.getElementById("answer").value;
+		};
+	</script>
+</body>
+</html>
