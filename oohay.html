@@ -2,29 +2,46 @@
 <html>
 <head>
 	<style>
-/*	img {
-		display: none;
-	}*/
+		img {
+			visibility: hidden;
+		}
+		h1 {
+			color: #7B0099;
+		}
 	</style>
 </head>
 <body>
-	<form>what is yo name<br><input type="text" id="answer" name="Answer"></form>
-	<button onclick = "myFunction()">insert</button>
-	<img src = "pic1">
+	<center><h1>!oohay</h1>
+	<form>
+	<!-- what is yo name?<br> -->
+	<input type="text" id="usersName" name="value" placeholder="What is yo name?" /> <br> <br>
+	<input type="button" value="!oohay ME" id = "submitButton" onclick = "myFunction()"/>
+	</form></center>
+	<h2 id="username"></h2>
+	<h2 id="funFactTag"></h2>
+	<center><img id="pics"></center>
 	<script>
-		var images = [{"pic1":"http://science-all.com/images/wallpapers/hamburger/hamburger-21.jpg"}]
-		var pick;
-		var x = Math.floor((Math.random() * 10));
-		var setup = function(){
-		pick = images[x];
-		document.getElementById("pic1").src = pick.pic1;
-		x = (x+1) % images.length;
-		localStorage.setItem("x", x);
-		};
-
 		function myFunction() {
-		var Answer = document.getElementById("answer").value;
+			var nameArray = ["Alvaro Soler", "Justin Baldoni", "Klay Thompson"]
+			var funFactArray = ["I\'m also fluent in 5 different languages", "I co-founded SHOUT, an app focused on changing the way we interact online", "I\'m also left handed"]
+			var boyImgList = ["http://www.mundodeportivo.com/r/GODO/MD/p3/Ocio/Imagenes/2015/10/02/Recortada/img_pmorata_20150930-141121_imagenes_md_propias_pmorata_pepm0064-kkRC--572x818@MundoDeportivo-Web.JPG", "https://img.buzzfeed.com/buzzfeed-static/static/2015-12/11/14/enhanced/webdr03/enhanced-12065-1449863704-2.png", "http://www.travelandleisure.com/sites/default/files/styles/1600x1000/public/klaythompson0815-1.jpg?itok=L3X5M-0D"]
+			var randomNumber = Math.floor(Math.random()*(boyImgList.length));
+			while(randomNumber == oldNumber){
+				randomNumber = Math.floor(Math.random()*(boyImgList.length));
+			}
+			oldNumber = randomNumber;
+			var usernamename = document.getElementById("usersName").value;
+			document.getElementById("username").innerHTML = "!oohay " + usernamename + ". I'm " + nameArray[randomNumber] + ".";
+			document.getElementById("funFactTag").innerHTML = "On top of being ridiculously good looking, " + funFactArray[randomNumber] + ".";
+			var boyImg = document.getElementById("pics");
+			boyImg.style.visibility = 'visible';
+			boyImg.src = (boyImgList[randomNumber]);
+			//console.log(randomNumber); 
 		};
+	
+		var oldNumber = -1;
+		document.getElementById("submitButton").onclick = myFunction;
+
 	</script>
 </body>
 </html>
